@@ -17,7 +17,7 @@ export class CryptoChartComponent implements OnInit {
   }
 
   getKrakenTime(): void {
-    this.krakenResult = this.krakenService.getKrakenTime().subscribe(krakenResult => this.krakenResult = krakenResult)
+    this.krakenService.getKrakenTime().subscribe(krakenResult => this.krakenResult = krakenResult);
   }
 
 
