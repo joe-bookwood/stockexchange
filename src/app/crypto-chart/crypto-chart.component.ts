@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {KrakenService} from "../kraken.service";
+import {KrakenResult} from "../kraken-result";
 
 @Component({
   selector: 'app-crypto-chart',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CryptoChartComponent implements OnInit {
 
-  constructor() { }
+  private krakenResult: KrakenResult;
+
+  constructor(private krakenService: KrakenService) { }
 
   ngOnInit() {
   }
+
+  getKrakenTime(): void {
+    this.krakenResult = this.krakenService.getKrakenTime().subscribe(krakenResult => this.krakenResult = krakenResult)
+  }
+
 
 }
