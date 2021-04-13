@@ -9,7 +9,7 @@ import { KrakenService } from './kraken.service';
 import { CryptoChartComponent } from './crypto-chart/crypto-chart.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, CryptoChartComponent ],
   bootstrap:    [ AppComponent ],
   providers: [KrakenService]
