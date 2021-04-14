@@ -16,14 +16,10 @@ export class KrakenService {
     constructor(private http: HttpClient) {
     }
 
-    getTest(): Observable<any> {
-      return this.http.get(this.testUrl);
-    }
-
     getKrakenTime(): Observable<KrakenResult<KrakenTime>> {
         return this.http.get<KrakenResult<KrakenTime>>(this.krakenUrl).pipe(
             tap(_ => this.log(`get kraken unixtime`)),
-            catchError(this.handleError<KrakenResult>('getTime'))
+            catchError(this.handleError<KrakenResult<KrakenTime>>('getTime'))
         );
     }
 
