@@ -2,12 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from "rxjs";
 import {KrakenResult} from "./kraken-result";
+import {KrakenTime} from "./kraken-time";
 import {catchError, map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class KrakenService {
     private krakenUrl = 'https://api.kraken.com/0/public/Time';
-    private testUrl = 'https://jsonplaceholder.typicode.com/todos/1';
+    
     httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
@@ -19,8 +20,8 @@ export class KrakenService {
       return this.http.get(this.testUrl);
     }
 
-    getKrakenTime(): Observable<KrakenResult> {
-        return this.http.get<KrakenResult>(this.krakenUrl).pipe(
+    getKrakenTime(): Observable<KrakenResult<KrakenTime>> {
+        return this.http.get<KrakenResult<KrakenTime>>(this.krakenUrl).pipe(
             tap(_ => this.log(`get kraken unixtime`)),
             catchError(this.handleError<KrakenResult>('getTime'))
         );
