@@ -7,11 +7,16 @@ import {catchError, map, tap} from 'rxjs/operators';
 @Injectable()
 export class KrakenService {
     private krakenUrl = 'https://api.kraken.com/0/public/Time';
+    private testUrl = 'https://jsonplaceholder.typicode.com/todos/1';
     httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
     constructor(private http: HttpClient) {
+    }
+
+    getTest(): Observable<any> {
+      return this.http.get(this.testUrl);
     }
 
     getKrakenTime(): Observable<KrakenResult> {
