@@ -1,6 +1,6 @@
 import { KrakenTime } from "./kraken-time";
 
-export interface KrakenResult {
+export interface KrakenResult<T> {
   error: string[];
-  result: KrakenTime;
+  result: T;
 }
