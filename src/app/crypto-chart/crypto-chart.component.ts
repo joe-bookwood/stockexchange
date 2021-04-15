@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {KrakenService} from "../kraken.service";
-import {KrakenResult} from "../kraken-result";
+import { KrakenService } from "../kraken.service";
+import { KrakenResult } from "../kraken-result";
+import { KrakenTime } from '../kraken-time';
 
 @Component({
   selector: 'app-crypto-chart',
