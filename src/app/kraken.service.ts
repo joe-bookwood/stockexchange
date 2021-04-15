@@ -17,10 +17,7 @@ export class KrakenService {
     }
 
     getKrakenTime(): Observable<KrakenResult<KrakenTime>> {
-        return this.http.get<KrakenResult<KrakenTime>>(this.krakenUrl).pipe(
-            tap(_ => this.log(`get kraken unixtime`)),
-            catchError(this.handleError<KrakenResult<KrakenTime>>('getTime'))
-        );
+        return this.http.get<KrakenResult<KrakenTime>>(this.krakenUrl);
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

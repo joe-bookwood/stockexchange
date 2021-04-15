@@ -9,7 +9,7 @@ import {KrakenResult} from "../kraken-result";
 })
 export class CryptoChartComponent implements OnInit {
 
-  private krakenResult: KrakenResult;
+  private krakenResult<KrakenTime>: KrakenResult;
 
   constructor(private krakenService: KrakenService) { }
 
@@ -17,7 +17,9 @@ export class CryptoChartComponent implements OnInit {
   }
 
   getKrakenTime(): void {
-    this.krakenService.getKrakenTime().subscribe(krakenResult => this.krakenResult = krakenResult);
+    this.krakenService.getKrakenTime().subscribe((response) => {
+      this.krakenResult = response;
+    }
   }
 
 
