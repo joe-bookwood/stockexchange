@@ -9,7 +9,7 @@ import {KrakenResult} from "../kraken-result";
 })
 export class CryptoChartComponent implements OnInit {
 
-  private krakenResult<KrakenTime>: KrakenResult;
+  private krakenResult: KrakenResult<KrakenTime>;
 
   constructor(private krakenService: KrakenService) { }
 
